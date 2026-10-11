@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="A small notes client demonstrating REST API requests.">
+  <title>QuickNotes</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="api.js" defer></script>
+</head>
+<body>
+  <main class="container">
+    <header class="page-header">
+      <p class="eyebrow">PROJECT 2 · API CLIENT</p>
+      <h1>QuickNotes</h1>
+      <p class="intro">Create, read, and delete notes using a REST-style API.</p>
+    </header>
+
+    <section class="panel" aria-labelledby="create-heading">
+      <h2 id="create-heading">Write a note</h2>
+      <form id="note-form">
+        <div class="field">
+          <label for="title-input">Title <span>(required, max 100 characters)</span></label>
+          <input id="title-input" name="title" type="text" maxlength="100" required>
+        </div>
+        <div class="field">
+          <label for="body-input">Note</label>
+          <textarea id="body-input" name="body" rows="4" placeholder="What do you want to remember?"></textarea>
+        </div>
+        <button id="submit-btn" type="submit">Create note</button>
+      </form>
+    </section>
+
+    <section class="notes-section" aria-labelledby="notes-heading">
+      <div class="section-heading">
+        <div>
+          <h2 id="notes-heading">Your notes</h2>
+          <p class="muted">Example data is supplied by JSONPlaceholder.</p>
+        </div>
+        <button id="load-btn" class="button-secondary" type="button">Load notes</button>
+      </div>
+      <p id="status" class="status" role="status" aria-live="polite">Select “Load notes” to get started.</p>
+      <ul id="notes-list" class="notes-list" aria-label="Notes list"></ul>
+    </section>
+
+    <footer>
+      <p>Learning demo: JSONPlaceholder simulates create and delete requests; changes are not permanently saved.</p>
+    </footer>
+  </main>
+</body>
+</html>
