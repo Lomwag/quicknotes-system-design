@@ -5,8 +5,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="A small notes client demonstrating REST API requests.">
   <title>QuickNotes</title>
-  <link rel="stylesheet" href="style.css">
-  <script src="api.js" defer></script>
+  
+<link rel="stylesheet" href="style.css">
+<script src="api.js" defer></script>
+<script src="personal-notes.js" defer></script>
+
 </head>
 <body>
   <main class="container">
@@ -42,6 +45,78 @@
       <p id="status" class="status" role="status" aria-live="polite">Select “Load notes” to get started.</p>
       <ul id="notes-list" class="notes-list" aria-label="Notes list"></ul>
     </section>
+
+
+    <section class="panel" aria-labelledby="personal-notes-heading">
+      <h2 id="personal-notes-heading">Personal Notes</h2>
+      <p class="muted">
+        Your private notes are stored in this browser, separately from the API demo.
+      </p>
+
+      <form id="personal-note-form">
+        <div class="field">
+          <label for="personal-title-input">Title (required, max 100 characters)</label>
+          <input
+            id="personal-title-input"
+            name="personalTitle"
+            type="text"
+            maxlength="100"
+            required
+          >
+        </div>
+
+        <div class="field">
+          <label for="personal-body-input">Note</label>
+          <textarea
+            id="personal-body-input"
+            name="personalBody"
+            rows="4"
+            placeholder="Write a personal reminder, study note, or task..."
+          ></textarea>
+        </div>
+
+        <div class="field">
+          <label for="personal-category-input">Category</label>
+          <select id="personal-category-input" name="personalCategory">
+            <option value="Personal">Personal</option>
+            <option value="Work">Work</option>
+            <option value="Study">Study</option>
+          </select>
+        </div>
+
+        <button id="personal-submit-btn" type="submit">Save personal note</button>
+      </form>
+
+      <div class="field">
+        <label for="personal-search-input">Search personal notes</label>
+        <input
+          id="personal-search-input"
+          type="search"
+          placeholder="Search by title or content..."
+        >
+      </div>
+
+      <div class="field">
+        <label for="personal-category-filter">Filter by category</label>
+        <select id="personal-category-filter">
+          <option value="All">All categories</option>
+          <option value="Personal">Personal</option>
+          <option value="Work">Work</option>
+          <option value="Study">Study</option>
+        </select>
+      </div>
+
+      <button id="export-personal-notes-btn" class="button-secondary" type="button">
+        Export personal notes as JSON
+      </button>
+
+      <p id="personal-status" class="status" role="status" aria-live="polite">
+        Your personal notes will appear here.
+      </p>
+
+      <ul id="personal-notes-list" class="notes-list" aria-label="Personal notes list"></ul>
+    </section>
+
 
     <footer>
       <p>Learning demo: JSONPlaceholder simulates create and delete requests; changes are not permanently saved.</p>
